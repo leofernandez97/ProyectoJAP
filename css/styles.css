@@ -147,7 +147,7 @@ body {
   height: 100%;
 }
 
-.text-center {
+.login-text-center {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;

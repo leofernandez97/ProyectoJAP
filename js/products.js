@@ -4,29 +4,29 @@ function showProductsList(array){
 
     let htmlContentToAppend = "";
     for(let i = 0; i < array.length; i++){
-        let category = array[i];
+        let products = array[i];
 
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
-                    <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+                    <img src="` + products.imgSrc + `" alt="` + products.description + `" class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ category.name +`</h4>
-                        <small class="text-muted">` + category.soldCount + ` artículos</small>
+                        <h4 class="mb-1">`+ products.name +`</h4>
+                        <small class="text-muted">` + products.soldCount + ` artículos</small>
                         
                     </div>
-                    <p> ` + category.description +` </p>
-                    <h5>` + category.currency + ` ` + category.cost + ` </h5>
+                    <p> ` + products.description +` </p>
+                    <h5>` + products.currency + ` ` + products.cost + ` </h5>
 
                 </div>
             </div>
         </div>
         `
 
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
     }
 }
 
