@@ -205,3 +205,7 @@ html, .body-login{
     width: 100%;
     margin: 10px;
   }
+
+  .login-footer{
+    margin-top: 50px;
+  }
