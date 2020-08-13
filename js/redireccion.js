@@ -12,6 +12,5 @@ function redireccion(){
   }
 }
 
-
 exist();
 redireccion();
