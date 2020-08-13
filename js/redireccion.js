@@ -7,12 +7,8 @@ function exist(){
 }
 
 function redireccion(){
-  if (logueado == "false") {
+  if (logueado != "true") {
     window.location.replace("./login.html");
-  }else if (logueado != "true"){
-    alert('Debe iniciar sesión')
-    window.location.replace("./login.html");
-    
   }
 }
 
