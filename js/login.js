@@ -12,7 +12,8 @@ function validate() {
     return false;
   } else {
     logueado = "true";
-    sessionStorage.setItem("estaLogueado", logueado);
+    localStorage.setItem("estaLogueado", logueado);
+    localStorage.setItem("user", username); 
     window.location.replace("./index.html");
     alert("Disfrute su estadia en la pagina");
   }

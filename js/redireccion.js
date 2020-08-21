@@ -1,8 +1,8 @@
-let logueado = sessionStorage.getItem("estaLogueado");
+let logueado = localStorage.getItem("estaLogueado");
 function exist(){
   if (typeof(logueado) == "object") {
     logueado = false; 
-    sessionStorage.setItem("estaLogueado", logueado);
+    localStorage.setItem("estaLogueado", logueado);
   }
 }
 

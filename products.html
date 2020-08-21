@@ -22,39 +22,68 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>      
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+        aria-haspopup="true" aria-expanded="false" id="user-a">
+        <script>
+          document.getElementById("user-a").innerHTML = localStorage.getItem("user");
+        </script>
+      </a>
+
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="my-profile.html">Mi Cuenta</a>
+          <a class="dropdown-item" href="#">Mis Compras</a>
+          <a class="dropdown-item" href="cart.html">Carrito</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
+        </div>
     </div>
+
+    <span></span>
+    <div class="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2 mt-2">
+      <div class="input-group w-50">
+
+        <input type="text" class="form-control search" id="buscador">
+        <span class="input-group-btn bg-white">
+          <button type="button" class="btn btn-search" id="boton">
+            Buscar
+          </button>
+        </span>
+      </div>
+    </div>
+
   </nav>
 
-    <!-- Desde aca-->
+
+      <!-- Desde aca-->
 
       <main role="main" class="pb-5">
-        <div class="text-center p-4">
+        <div class="text-center p-4" id="titulo">
           <h2>Productos</h2>
           <p class="lead">Verás aquí todos los productos del sitio.</p>
         </div>
         <div class="container">
-          <div class="row">
+          <div class="row" id= "buttons-filter">
             <div class="col text-right">
               <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
                 <label class="btn btn-light active" id="sortAsc">
-                  <input type="radio" name="options" autocomplete="off" checked />A-Z
+                  <input type="radio" name="options" autocomplete="off" checked/><i class="fas fa-sort-amount-down">$</i>
                 </label>
                 <label class="btn btn-light" id="sortDesc">
-                  <input type="radio" name="options" autocomplete="off" />Z-A
+                  <input type="radio" name="options" autocomplete="off"/><i class="fas fa-sort-amount-up mr-1">$</i>
                 </label>
                 <label class="btn btn-light" id="sortByCount">
-                  <input type="radio" name="options" autocomplete="off" /><i class="fas fa-sort-amount-down mr-1"></i>Cant.
+                  <input type="radio" name="options" autocomplete="off" /><i class="fas fa-sort-amount-up mr-1"></i>Rel.
                 </label>
               </div>
             </div>
           </div>
-          <div class="row justify-content-end">
+          <div id="filter" class="row justify-content-end">
             <div class="col-md-6"></div>
             <div class="col-md-6 col-sm-12 mb-1 container">
               <div class="row container p-0 m-0">
                 <div class="col">
-                  <p class="font-weight-normal text-right my-2">Cant.</p>
+                  <p class="font-weight-normal text-right my-2">Precio</p>
                 </div>
                 <div class="col">
                   <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin" />
@@ -111,6 +140,7 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/init.js"></script>
 <script src="js/products.js"></script>
+
 </body>
 
 </html>
