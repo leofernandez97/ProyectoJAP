@@ -20,7 +20,6 @@ function showProductsList(array){
                     </div>
                     <p> ` + products.description +` </p>
                     <h5>` + products.currency + ` ` + products.cost + ` </h5>
-
                 </div>
             </div>
         </div>
