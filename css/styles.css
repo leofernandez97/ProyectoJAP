@@ -240,7 +240,7 @@ html, .body-login{
   border-radius: 8px;
   position: absolute;
   z-index: 10;
-  top: 90px;
+  top: 85px;
   left: -50%;
   display: flex;
   align-items: center;
