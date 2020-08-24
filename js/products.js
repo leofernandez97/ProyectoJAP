@@ -84,6 +84,7 @@ const buscador = document.querySelector('#buscador');
 const boton = document.querySelector('#boton')
 
 const filtrar = ()=>{
+
     let htmlContentToAppend = "";
     const texto = buscador.value.toLowerCase();
     for(let producto of currentCategoriesArray){
@@ -111,12 +112,8 @@ const filtrar = ()=>{
         }
     }
     if(htmlContentToAppend === ''){
-        var filtros = document.getElementById("filter");
-        var botones = document.getElementById("buttons-filter");
-        var titulo = document.getElementById("titulo");
-        titulo.remove();
-        botones.remove();
-        filtros.remove();
+
+        
 
         htmlContentToAppend += 
             
@@ -136,9 +133,16 @@ const filtrar = ()=>{
             document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
     }
 }
-
 boton.addEventListener('click', filtrar);
-buscador.addEventListener("keyup", filtrar);
+buscador.addEventListener("keydown", filtrar);
+
+var valor = true
+function cambiarTextoBoton() {
+  var uno = document.getElementById('btn-desplegar');
+  valor?uno.innerText = "Contraer menú de búsqueda":uno.innerText = "Desplegar menú de búsqueda";
+  valor=!valor
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
