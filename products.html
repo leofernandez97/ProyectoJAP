@@ -13,40 +13,56 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-        aria-expanded="false" id="user-a">
-        <script>
-          document.getElementById("user-a").innerHTML = localStorage.getItem("user");
-        </script>
-      </a>
-
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="my-profile.html">Mi Cuenta</a>
-        <a class="dropdown-item" href="#">Mis Compras</a>
-        <a class="dropdown-item" href="cart.html">Carrito</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
-      </div>
-    </div>
-    <span></span>
-  </nav>
-
-  <div class="site-header sticky-top py-1 bg-dark collapse" id="collapse-search">
-    <div class="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2">
-      <div class="input-group w-50">
-        <input type="text" class="form-control search" id="buscador">
+  <header class="site-header sticky-top py-1 bg-dark">
+    <input type="checkbox" id="check">
+    <label for="check"><img src="img/hamb.png" widht="30px" height="30px"></label>
+    <div id="buscador-nav" class="input-group">
+        <input type="text" class="form-control search" id="buscador-input-nav">
         <span class="input-group-btn bg-white">
-          <button type="button" class="btn btn-search" id="boton">
+          <button type="button" class="btn btn-search" id="boton-nav">
+            Buscar
+          </button>
+        </span>
+    </div>
+    <nav class="bg-dark">
+      <div id="cont-nav" class="container d-flex flex-column flex-md-row justify-content-between">
+        <ul>
+          <li><a class="py-2 d-md-inline-block" href="index.html">Inicio</a></li>
+          <li><a class="py-2 d-md-inline-block" href="categories.html">Categorías</a></li>
+          <li><a class="py-2 d-md-inline-block" href="products.html">Productos</a></li>
+          <li><a class="py-2 d-md-inline-block" href="sell.html">Vender</a></li>
+          <li><a class="py-2 d-md-inline-block" href="cart.html">Mi carrito</a></li>
+          <div class="dropdown-divider"></div>
+          <li><a class="dropdown-toggle py-2 d-md-inline-block" data-toggle="dropdown" href="#" role="button"
+              aria-haspopup="true" aria-expanded="false" id="user-a">
+              <script>
+                document.getElementById("user-a").innerHTML = localStorage.getItem("user");
+              </script>
+            </a>
+
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="my-profile.html">Mi Cuenta</a>
+              <a class="dropdown-item" href="#">Mis Compras</a>
+              <a class="dropdown-item" href="cart.html">Carrito</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div  class="site-header py-1 bg-dark collapse" id="collapse-search">
+    <div class="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2">
+      <div id="buscador-main" class="input-group w-50">
+        <input type="text" class="form-control search" id="buscador-input">
+        <span class="input-group-btn bg-white">
+          <button type="button" class="btn btn-search" id="boton-main">
             Buscar
           </button>
         </span>
@@ -70,9 +86,9 @@
     </div>
     <div class="container">
       <div class="text-right" id="caja">
-        <input type="checkbox" id="check" class="checkbox">
-        <label class="label-filtros" for="check" id="menu-filtros">Filtros</label>
-        <div id="filtros" class="left-panel">\
+        <input type="checkbox" id="check-filter" class="checkbox">
+        <label class="label-filtros" for="check-filter" id="menu-filtros">Filtros</label>
+        <div id="filtros" class="left-panel">
           <ul>
             <li>
               <div class="" id="buttons-filter" value="visible">
@@ -88,7 +104,7 @@
                     </label>
                     <label class="btn btn-light" id="sortByCount">
                       <input type="radio" name="options" autocomplete="off" /><i
-                        class="fas fa-sort-amount-up mr-1"></i>Rel.
+                        class="fas fa-sort-amount-up mr-1">Rel.</i>
                     </label>
                   </div>
                 </div>

@@ -28,31 +28,41 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/dropzone.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-            <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-            <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-            <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-        aria-haspopup="true" aria-expanded="false" id="user-a">
-        <script>
-          document.getElementById("user-a").innerHTML = localStorage.getItem("user");
-        </script>
-      </a>
+    <header class="site-header sticky-top py-1 bg-dark">
+    <input type="checkbox" id="check">
+    <label for="check"><img src="img/hamb.png" widht="30px" height="30px"></label>
+    <img id="header-img" src="img/header.png">
+    <nav class="bg-dark">
+      <div id="cont-nav" class="container d-flex flex-column flex-md-row justify-content-between">
+        <ul>
+          <li><a class="py-2 d-md-inline-block" href="index.html">Inicio</a></li>
+          <li><a class="py-2 d-md-inline-block" href="categories.html">Categorías</a></li>
+          <li><a class="py-2 d-md-inline-block" href="products.html">Productos</a></li>
+          <li><a class="py-2 d-md-inline-block" href="sell.html">Vender</a></li>
+          <li><a class="py-2 d-md-inline-block" href="cart.html">Mi carrito</a></li>
+          <div class="dropdown-divider"></div>
+          <li><a class="dropdown-toggle py-2 d-md-inline-block" data-toggle="dropdown" href="#" role="button"
+              aria-haspopup="true" aria-expanded="false" id="user-a">
+              <script>
+                document.getElementById("user-a").innerHTML = localStorage.getItem("user");
+              </script>
+            </a>
 
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="my-profile.html">Mi Cuenta</a>
-        <a class="dropdown-item" href="#">Mis Compras</a>
-        <a class="dropdown-item" href="cart.html">Carrito</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="my-profile.html">Mi Cuenta</a>
+              <a class="dropdown-item" href="#">Mis Compras</a>
+              <a class="dropdown-item" href="cart.html">Carrito</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
+            </div>
+          </li>
+        </ul>
       </div>
-        </div>
     </nav>
+  </header>
       <div class="container">
         <div class="text-center p-4">
           <h2>Vender</h2>
