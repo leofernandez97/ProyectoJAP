@@ -11,11 +11,12 @@ function validate() {
     alert("Correo inválido");
     return false;
   } else {
-    logueado = "true";
+    localStorage.setItem("user", username);
+    logueado = true;
     localStorage.setItem("estaLogueado", logueado);
-    localStorage.setItem("user", username); 
-    window.location.replace("./index.html");
+    window.location = "index.html";
     alert("Disfrute su estadia en la pagina");
+    
   }
 }
 
