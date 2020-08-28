@@ -124,7 +124,7 @@ const filtrar = ()=>{
                 
                 `
                 </br>
-                <div class="alert-success" style="width: 1080px;" role="alert">
+                <div class="alert-success mx-auto" style="width: auto;" role="alert">
                 <h4 class="alert-heading text-center">Producto no encontrado!</h4>
                 <ul >
                     <li>Revisa la ortografía de la palabra.</li>
@@ -170,9 +170,9 @@ const filtrar = ()=>{
                 
                 `
                 </br>
-                <div class="alert-success" style="width: 1080px;" role="alert">
+                <div class="alert-success" style="width: auto;" role="alert">
                 <h4 class="alert-heading text-center">Producto no encontrado!</h4>
-                <ul >
+                <ul>
                     <li>Revisa la ortografía de la palabra.</li>
                     <li>Utiliza palabras más genéricas o menos palabras..</li>
                     <li>Navega por las categorías para encontrar un producto similar</li>
