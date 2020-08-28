@@ -80,61 +80,115 @@ function sortAndShowCategories(sortCriteria, categoriesArray){
     showCategoriesList();
 }
 
-const buscador = document.querySelector('#buscador');
-const boton = document.querySelector('#boton')
+const buscador = document.querySelector('#buscador-input');
+const buscadorResponsive = document.querySelector('#buscador-input-nav')
+const boton = document.querySelector('#boton-main');
+const botonResponsive = document.querySelector('#boton-nav');
 
 const filtrar = ()=>{
 
     let htmlContentToAppend = "";
     const texto = buscador.value.toLowerCase();
-    for(let producto of currentCategoriesArray){
-        let nombre = producto.name.toLowerCase();
-        if(nombre.indexOf(texto) !== -1){
-            htmlContentToAppend += 
-            `
-            <a href="category-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ producto.name +`</h4>
-                            <small class="text-muted">` + producto.soldCount + ` artículos</small>
+    const textoResponsive = buscadorResponsive.value.toLowerCase();
+
+    if(texto !== ''){
+        for(let producto of currentCategoriesArray){
+            let nombre = producto.name.toLowerCase();
+            if(nombre.indexOf(texto) !== -1){
+                htmlContentToAppend += 
+                `
+                <a href="category-info.html" class="list-group-item list-group-item-action">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
                         </div>
-                        <p class="mb-1">` + producto.description + `</p>
-                        <h5> `+ producto.currency + ` ` + producto.cost +`</h5>
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1">`+ producto.name +`</h4>
+                                <small class="text-muted">` + producto.soldCount + ` artículos</small>
+                            </div>
+                            <p class="mb-1">` + producto.description + `</p>
+                            <h5> `+ producto.currency + ` ` + producto.cost +`</h5>
+                        </div>
                     </div>
-                </div>
-            </a>
-            `
-            document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+                </a>
+                `
+                document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+            }
         }
-    }
-    if(htmlContentToAppend === ''){
+        if(htmlContentToAppend === ''){
 
-        
-
-        htmlContentToAppend += 
             
-            `
-            </br>
-            <div class="alert-success" style="width: 1080px;" role="alert">
-            <h4 class="alert-heading text-center">Producto no encontrado!</h4>
-            <ul >
-                <li>Revisa la ortografía de la palabra.</li>
-                <li>Utiliza palabras más genéricas o menos palabras..</li>
-                <li>Navega por las categorías para encontrar un producto similar</li>
-            </ul>
-            <hr>
-            <p class="mb-0 text-center">Volver a la pantalla de <a href="index.html">Inicio</a>.</p>
-            </div>
-            `
-            document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+
+            htmlContentToAppend += 
+                
+                `
+                </br>
+                <div class="alert-success mx-auto" style="width: auto;" role="alert">
+                <h4 class="alert-heading text-center">Producto no encontrado!</h4>
+                <ul >
+                    <li>Revisa la ortografía de la palabra.</li>
+                    <li>Utiliza palabras más genéricas o menos palabras..</li>
+                    <li>Navega por las categorías para encontrar un producto similar</li>
+                </ul>
+                <hr>
+                <p class="mb-0 text-center">Volver a la pantalla de <a href="index.html">Inicio</a>.</p>
+                </div>
+                `
+                document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+        }
+    }else{
+        for(let producto of currentCategoriesArray){
+            let nombre = producto.name.toLowerCase();
+            if(nombre.indexOf(textoResponsive) !== -1){
+                htmlContentToAppend += 
+                `
+                <a href="category-info.html" class="list-group-item list-group-item-action">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
+                        </div>
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1">`+ producto.name +`</h4>
+                                <small class="text-muted">` + producto.soldCount + ` artículos</small>
+                            </div>
+                            <p class="mb-1">` + producto.description + `</p>
+                            <h5> `+ producto.currency + ` ` + producto.cost +`</h5>
+                        </div>
+                    </div>
+                </a>
+                `
+                document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+            }
+        }
+        if(htmlContentToAppend === ''){
+
+            
+
+            htmlContentToAppend += 
+                
+                `
+                </br>
+                <div class="alert-success" style="width: auto;" role="alert">
+                <h4 class="alert-heading text-center">Producto no encontrado!</h4>
+                <ul>
+                    <li>Revisa la ortografía de la palabra.</li>
+                    <li>Utiliza palabras más genéricas o menos palabras..</li>
+                    <li>Navega por las categorías para encontrar un producto similar</li>
+                </ul>
+                <hr>
+                <p class="mb-0 text-center">Volver a la pantalla de <a href="index.html">Inicio</a>.</p>
+                </div>
+                `
+                document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+        }
     }
 }
 boton.addEventListener('click', filtrar);
+botonResponsive.addEventListener('click', filtrar);
 buscador.addEventListener("keydown", filtrar);
+buscadorResponsive.addEventListener("keydown", filtrar);
 
 var valor = true
 function cambiarTextoBoton() {
