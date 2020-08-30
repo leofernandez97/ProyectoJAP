@@ -12,11 +12,10 @@ function validate() {
     return false;
   } else {
     localStorage.setItem("user", username);
-    logueado = true;
+    logueado = "true";
     localStorage.setItem("estaLogueado", logueado);
-    window.location = "index.html";
-    alert("Disfrute su estadia en la pagina");
-    
+    window.location.replace("./index.html")
+    alert("Disfrute su estadia en la pagina");    
   }
 }
 

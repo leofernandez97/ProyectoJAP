@@ -1,7 +1,7 @@
 let logueado = localStorage.getItem("estaLogueado");
 function exist(){
   if (typeof(logueado) == "object") {
-    logueado = false; 
+    logueado = "false"; 
     localStorage.setItem("estaLogueado", logueado);
   }
 }
