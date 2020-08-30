@@ -42,7 +42,7 @@ var getJSONData = function(url){
 
 function cerrarSesion(){
   localStorage.removeItem("user");
-  localStorage.setItem("estaLogueado", "false");
+  localStorage.setItem("estaLogueado", false);
   location.replace("./login.html")
 }
 
