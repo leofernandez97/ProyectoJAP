@@ -14,6 +14,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/responsive.css" rel="stylesheet">
+  <link href="css/lightslider.css" rel="stylesheet">
 </head>
 
 <body>
@@ -50,33 +51,45 @@
     </nav>
   </header>
   <div class="container p-5">
-  <h3 id="productName"></h3>
+  <h2 id="productName"></h3>
       <hr class="my-3">
       <dl>
-        <dt>Descripción</dt>
+        <dt class="subtitle" style="display: none;">Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+            
+          </div>
+        </dd>
+
+        <dt class="subtitle">Descripción</dt>
         <dd>
           <p id="productDescription"></p>
         </dd>
 
-        <dt>Precio</dt>
+        <dt class="subtitle">Precio</dt>
         <dd>
           <span><p id="productCurrency"></p><p id="productCost"></p></span>
         </dd>
 
-        <dt>Cantidad de unidades vendidas</dt>
+        <dt class="subtitle">Cantidad de unidades vendidas</dt>
         <dd>
           <p id="productSoldCount"></p>
         </dd>
 
-        <dt>Imágenes ilustrativas</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-          </div>
-        </dd>
-        <dt>Productos relacionados</dt>
+        
+        <dt class="subtitle">Productos relacionados</dt>
         <dd>
           <div class="row text-center text-lg-left pt-2" id="productRelatedProducts">
           </div>
+        </dd>
+
+        <hr>
+      
+        <dt class="subtitle">Comentarios</dt>
+        <dd>
+        <div id="comentarios-prod">
+        
+        </div>
         </dd>
       </dl>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
@@ -104,6 +117,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/lightslider.js"></script>
 </body>
 
 </html>

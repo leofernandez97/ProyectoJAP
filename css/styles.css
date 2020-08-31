@@ -325,3 +325,7 @@ header label img{
   align-items: flex-start;
   width: auto;
 }
+
+.subtitle{
+  font-size: x-large;
+}
