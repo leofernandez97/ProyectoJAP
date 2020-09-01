@@ -9,11 +9,11 @@ function showImagesGallery(array){
         let imageSrc = array[i];
 
         htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6 w-100">
-            <div class="d-block mb-4 w-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
+            <li data-thumb="` + imageSrc + `">
+                <a href="` + imageSrc + `" data-fancybox="gallery">
+                    <img class="img-prod-info" src="` + imageSrc + `" />
+                </a>
+            </li>
         `
 
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
