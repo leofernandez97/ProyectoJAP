@@ -329,3 +329,14 @@ header label img{
 .subtitle{
   font-size: x-large;
 }
+
+
+.alert-ul li{
+  text-align: left;
+  padding-left: 20%;
+  padding-right: 10%;
+  margin-top: 5px;
+  background-color: #b0cfb7;
+  list-style-type: disc;
+  list-style-position: inside;
+}
