@@ -340,3 +340,9 @@ header label img{
   list-style-type: disc;
   list-style-position: inside;
 }
+
+.align-ico{
+  display: flex;
+  align-self: center;
+  margin-right: 5px;
+}
