@@ -105,3 +105,8 @@ header #buscador-nav{
           margin-right: 10px;
       }
     }
+
+    #productImagesGallery{
+        display: inline-flex;
+        width: 100%;
+    }

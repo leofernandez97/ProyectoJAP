@@ -1,10 +1,10 @@
 
 
 .slideshow-container{
-    width: 40%;
+    width: 100%;
 }
   .demo {
-      width:780px;
+      width:100%;
       margin: 20px auto;
   }
   #lightSlider {
@@ -20,9 +20,15 @@
       width: auto;
       height: auto;
   }
+
+  #productImagesGallery{
+    display: inline-flex;
+    width: 100%;
+}
+  
+
   .img-prod-info {
-      display: block;
-      
+      display: flex;
       height: auto;
       width: 90%;
       
