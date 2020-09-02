@@ -388,3 +388,10 @@ label:hover ~ label {
 input[type="radio"]:checked ~ label {
   color: orange;
 }
+.starChecked {
+  color: orange;
+}
+
+.fa-star:hover{
+  color: rgb(255, 205, 113);
+}

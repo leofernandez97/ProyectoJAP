@@ -38,22 +38,44 @@ function showRelatedProducts(array){
         document.getElementById("productRelatedProducts").innerHTML = htmlContentToAppend;
     }
 }
+
+function ratingStars(int){
+    let stars;
+    if(int === 1){
+        stars ='<span class="fa fa-star starChecked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+    }else if (int === 2){
+        stars = '<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+    }else if (int === 3){
+        stars='<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+    }else if (int === 4){
+        stars='<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star"></span>'
+    }else{
+        stars='<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span>'
+    }
+    return stars;
+}
+
+let auxStars;
 function showComments(array){
         let htmlContentToAppend = "";
+        
+        
+        
         for(let i = 0; i < array.length; i++){
             let comment = array[i];
-
+            console.log(comment.score);
+            let auxStars = comment.score;
             htmlContentToAppend += `
             <div class="card mb-2">
                 <div class="d-block">
                     <div class="card-header align-user w-100">
-                    `+comment.user+comment.score+`
+                    <div class="col font-italic m-0 pl-0">`+comment.user+'</div><div class="col text-right"> Calificación: '+ratingStars(auxStars)+`</div>
                     </div>
                 </div>
                 <div class="card-body ">
                     <blockquote class="blockquote mb-0">
                     <p>`+comment.description+`</p>
-                    <div class="blockquote-footer m-0">`+comment.dateTime+`</div>
+                    <div class="blockquote-footer text-right m-0">`+comment.dateTime+`</div>
                     </blockquote>
                 </div>
             </div>
