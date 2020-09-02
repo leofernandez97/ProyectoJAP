@@ -46,6 +46,7 @@ function cerrarSesion(){
   location.replace("./login.html")
 }
 
+// HORA ACTUAL
 function getDateTime() {
   var now     = new Date(); 
   var year    = now.getFullYear();
@@ -73,15 +74,15 @@ function getDateTime() {
    return dateTime;
 }
 
-// example usage: realtime clock
+// DEVUELVE HORA
 setInterval(function(){
   currentTime = getDateTime();
-  document.getElementById("digital-clock").value = currentTime;
+  document.getElementById("dateComment").value = currentTime;
 }, 1000);
 
-function alertaComentario(){
-  alert("Comentario enviado con exito");
-}
+
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.

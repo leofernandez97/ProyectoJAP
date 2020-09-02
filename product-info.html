@@ -93,6 +93,10 @@
         <dt class="subtitle">Comentarios</dt>
         <dd>
           <div id="comentarios-prod">
+
+          </div>
+          <div id="new-comentarios-prod">
+            
           </div>
         </dd>
 
@@ -109,25 +113,25 @@
                 <div class="modal-body mx-3">
                   <div class="md-form mb-3 d-flex">
                     <i class="fas fa-user align-ico"></i>
-                    <input type="text" id="form34" class="form-control" disabled="disabled">
+                    <input type="text" id="userComment" class="form-control formComment" disabled="disabled">
                     <script>
-                      document.getElementById("form34").value = localStorage.getItem("user");
+                      document.getElementById("userComment").value = localStorage.getItem("user");
                     </script>
                   </div>
                   <div class="md-form mb-3 d-flex">
                     <i class="fas fa-calendar-alt align-ico"></i></i>
-                    <input type="text" id="digital-clock" class="form-control" disabled="disabled">
+                    <input type="text" id="dateComment" class="form-control formComment" disabled="disabled">
                     
                   </div>
-
                   <div class="md-form mb-3 d-flex">
                     <i class="fas fa-pencil align-ico"></i>
-                    <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+                    <textarea type="text" id="textComment" class="md-textarea form-control formComment" rows="4" ></textarea>
                   </div>
 
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                  <button class="btn btn-success" onclick="alertaComentario()" data-dismiss="modal" aria-label="Close">Enviar<i class="fas fa-paper-plane-o ml-1"></i></button>
+                  <button class="btn btn-success" type="button"  data-dismiss="modal" aria-label="Close">Enviar<i class="fas fa-paper-plane-o ml-1"></i></button>
+                
                 </div>
               </div>
             </div>
@@ -166,7 +170,9 @@
   <!--GALERIA-->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js'></script>
-  <script  src="js/function.js"></script>
+  <script src="js/function.js"></script>
+  <script src="js/newComment.js"></script>
+
 </body>
 
 </html>

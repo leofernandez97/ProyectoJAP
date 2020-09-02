@@ -45,8 +45,10 @@ function showComments(array){
 
             htmlContentToAppend += `
             <div class="card mb-2">
-                <div class="card-header">
-                `+comment.user+comment.score+`
+                <div class="d-block">
+                    <div class="card-header align-user w-100">
+                    `+comment.user+comment.score+`
+                    </div>
                 </div>
                 <div class="card-body ">
                     <blockquote class="blockquote mb-0">
@@ -60,7 +62,6 @@ function showComments(array){
             document.getElementById("comentarios-prod").innerHTML = htmlContentToAppend;
         }
     }
-    
     
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
