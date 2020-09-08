@@ -352,46 +352,94 @@ header label img{
   align-self: center;
 }
 
-/*ESTRELLAS*/
-.form-stars {
-  width: 250px;
-  margin: 0 auto;
-  height: 50px;
-}
-
-.form-stars p {
-  text-align: left;
-}
-
-.form-stars label {
-  font-size: 20px;
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-label {
-  color: grey;
-}
-
 .clasificacion {
   direction: rtl;
   unicode-bidi: bidi-override;
 }
 
-label:hover,
-label:hover ~ label {
-  color: orange;
-}
 
-input[type="radio"]:checked ~ label {
-  color: orange;
-}
 .starChecked {
   color: orange;
 }
 
-.fa-star:hover{
+
+.star:hover{
   color: rgb(255, 205, 113);
+}
+
+.caja-score{
+  background-color: rgb(236, 236, 236);
+  border: 2px solid rgb(195, 195, 195);
+  border-radius: 5px;
+  width:5%;
+  padding-bottom: 5%;
+  position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.txt-score{
+  
+  background-color: red;
+}
+
+/* ESTRELLAS */
+.rating {
+  float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+ follow these rules. Every browser that supports :checked also supports :not(), so
+ it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+  clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+  float:right;
+  width:1em;
+  padding:0 .1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:200%;
+  line-height:1.2;
+  color:#ddd;
+}
+
+.rating:not(:checked) > label:before {
+  content: '★ ';
+}
+
+.rating > input:checked ~ label {
+  color: #f70;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: gold;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #ea0;
+}
+
+.rating > label:active {
+  position:relative;
+  top:2px;
+  left:2px;
+}
+
+/**/
+
+#link-a:link, #link-a:visited, #link-a:active {
+  text-decoration:none;
+  color: #343a40;
 }

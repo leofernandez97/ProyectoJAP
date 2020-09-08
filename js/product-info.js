@@ -1,5 +1,6 @@
 var product = {};
 let comment = {};
+let productoRelac = {};
 
 function showImagesGallery(array){
 
@@ -25,51 +26,44 @@ function showRelatedProducts(array){
     let htmlContentToAppend = "";
 
     for(let i = 0; i < array.length; i++){
-        let relatedProducts = array[i];
+        let posicion = array[i];
 
         htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 w-100">
-                <a href="product-info.html"> <img class="img-fluid img-thumbnail" src="img/car` + relatedProducts + `.jpg" alt=""></a>
+        
+            <div class="card m-2 bg-light"  style="width: 14rem;">
+                <a id="link-a" href="product-info.html">
+                    <img class="card-img-top" src="`+ productoRelac[posicion].imgSrc +`" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title text-center ">`+ productoRelac[posicion].name +`</h3>
+                        <hr>
+                        <p class="card-text texto-suspensivo text-center">`+ productoRelac[posicion].description +`</p>
+                    </div>
+                    <div class="card-footer">
+                        <h4 class=" text-center">`+productoRelac[posicion].currency + productoRelac[posicion].cost+`</h4>
+                    </div>
+                </a>
             </div>
-        </div>
+       
         `
 
         document.getElementById("productRelatedProducts").innerHTML = htmlContentToAppend;
     }
 }
 
-function ratingStars(int){
-    let stars;
-    if(int === 1){
-        stars ='<span class="fa fa-star starChecked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
-    }else if (int === 2){
-        stars = '<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
-    }else if (int === 3){
-        stars='<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
-    }else if (int === 4){
-        stars='<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star"></span>'
-    }else{
-        stars='<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span>'
-    }
-    return stars;
-}
 
 let auxStars;
 function showComments(array){
         let htmlContentToAppend = "";
         
-        
-        
         for(let i = 0; i < array.length; i++){
             let comment = array[i];
-            console.log(comment.score);
+            
             let auxStars = comment.score;
             htmlContentToAppend += `
             <div class="card mb-2">
                 <div class="d-block">
                     <div class="card-header align-user w-100">
-                    <div class="col font-italic m-0 pl-0">`+comment.user+'</div><div class="col text-right"> Calificación: '+ratingStars(auxStars)+`</div>
+                    <div class="col font-italic m-0 pl-0">`+comment.user+'</div><div class="col text-right "> Calificación: '+ratingStars(auxStars)+`</div>
                     </div>
                 </div>
                 <div class="card-body ">
@@ -84,12 +78,43 @@ function showComments(array){
             document.getElementById("comentarios-prod").innerHTML = htmlContentToAppend;
         }
     }
+
+
+    function ratingStars(int){
+        let stars;
+        if(int === 1){
+            stars ='<span class="fa fa-star starChecked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+        }else if (int === 2){
+            stars = '<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+        }else if (int === 3){
+            stars='<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+        }else if (int === 4){
+            stars='<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star"></span>'
+        }else if (int === 5){
+            stars='<span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span><span class="fa fa-star starChecked"></span>'
+        }else{
+          stars ='<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>'
+        }
+        return stars;
+      }
+
+
+      
+        
+      
     
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCTS_URL).then(function (resultObj){
+        if(resultObj.status === "ok")
+        {
+            productoRelac = resultObj.data;
+            
+        }
+    });
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
@@ -123,5 +148,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     
     });
+
+    
     
     });

@@ -15,7 +15,8 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/responsive.css" rel="stylesheet">
   <link rel='stylesheet' href='https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css'><link rel="stylesheet" href="css/styleGallery.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css'>
+  <link rel="stylesheet" href="css/styleGallery.css">
 </head>
 
 <body>
@@ -25,7 +26,7 @@
     <img id="header-img" src="img/header.png">
     <nav class="bg-dark">
       <div id="cont-nav" class="container d-flex flex-column flex-md-row justify-content-between">
-        <ul >
+        <ul>
           <li><a class="py-2 d-md-inline-block" href="index.html">Inicio</a></li>
           <li><a class="py-2 d-md-inline-block" href="categories.html">Categorías</a></li>
           <li><a class="py-2 d-md-inline-block" href="products.html">Productos</a></li>
@@ -52,17 +53,18 @@
     </nav>
   </header>
   <div class="container p-5">
-  <h2 id="productName"></h3>
+    <h2 id="productName">
+      </h3>
       <hr class="my-3">
       <dl>
         <dt class="subtitle" style="display: none;">Imágenes ilustrativas</dt>
         <dd>
-            <!-- Slideshow container -->
-            <div class="slideshow-container" >
-              <div class="demo">
-                  <ul id="productImagesGallery" >
-              
-                  </ul>
+          <!-- Slideshow container -->
+          <div class="slideshow-container">
+            <div class="demo">
+              <ul id="productImagesGallery">
+
+              </ul>
             </div>
         </dd>
 
@@ -73,7 +75,10 @@
 
         <dt class="subtitle">Precio</dt>
         <dd>
-          <span><p id="productCurrency"></p><p id="productCost"></p></span>
+          <span>
+            <p id="productCurrency"></p>
+            <p id="productCost"></p>
+          </span>
         </dd>
 
         <dt class="subtitle">Cantidad de unidades vendidas</dt>
@@ -81,7 +86,7 @@
           <p id="productSoldCount"></p>
         </dd>
 
-        
+
         <dt class="subtitle">Productos relacionados</dt>
         <dd>
           <div class="row text-center text-lg-left pt-2" id="productRelatedProducts">
@@ -89,19 +94,20 @@
         </dd>
 
         <hr>
-      
+
         <dt class="subtitle">Comentarios</dt>
         <dd>
           <div id="comentarios-prod">
 
           </div>
           <div id="new-comentarios-prod">
-            
+
           </div>
         </dd>
 
         <dd>
-          <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header text-center">
@@ -119,48 +125,44 @@
                     </script>
                   </div>
                   <div class="md-form mb-3 d-flex">
-                    <i class="fas fa-calendar-alt align-ico"></i></i>
+                    <i class="fas fa-calendar-alt align-ico"></i>
                     <input type="text" id="dateComment" class="form-control formComment" disabled="disabled">
-                    
                   </div>
                   <div class="md-form mb-3 d-flex">
-                    <form class="form-stars">
-                      <p class="clasificacion">
-                        <input id="radio1" type="radio" name="estrellas" value="5"><!--
-                        --><label for="radio1">★</label><!--
-                        --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-                        --><label for="radio2">★</label><!--
-                        --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-                        --><label for="radio3">★</label><!--
-                        --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-                        --><label for="radio4">★</label><!--
-                        --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-                        --><label for="radio5">★</label>
-                      </p>
-                    </form>
-                    
-                    
-                  </div> 
+                      <form id="ratingForm">
+                          <fieldset class="rating">
+                              <h5 class="text-left">Calificacion:</h5>
+                              <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Excelente">5 stars</label>
+                              <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Muy bueno">4 stars</label>
+                              <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Bueno">3 stars</label>
+                              <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Malo">2 stars</label>
+                              <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Muy malo">1 star</label>
+                          </fieldset>
+                      </form>
+                  </div>
                   <div class="md-form mb-3 d-flex">
                     <i class="fas fa-pencil align-ico"></i>
-                    <textarea type="text" id="textComment" class="md-textarea form-control formComment" rows="4" ></textarea>
+                    <textarea type="text" id="textComment" class="md-textarea form-control formComment"
+                      rows="4"></textarea>
                   </div>
 
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                  <button class="btn btn-success" type="button"  data-dismiss="modal" aria-label="Close">Enviar<i class="fas fa-paper-plane-o ml-1"></i></button>
-                
+                  <button class="btn btn-success" type="button" data-dismiss="modal" aria-label="Close">Enviar<i
+                      class="fas fa-paper-plane-o ml-1"></i></button>
+
                 </div>
               </div>
             </div>
           </div>
           <div class="text-center">
-            <a href="" class="btn btn-default btn-rounded mb-4 bg-light text-dark btn-lg" data-toggle="modal" data-target="#modalContactForm">Haz un comentario...</a>
+            <a href="" class="btn btn-default btn-rounded mb-4 bg-light text-dark btn-lg" data-toggle="modal"
+              data-target="#modalContactForm">Haz un comentario...</a>
           </div>
         </dd>
       </dl>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
-    </div>
+  </div>
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -168,9 +170,9 @@
       </p>
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>  
-  </div>
-  
+    </div>
+    </div>
+
   </footer>
   <div id="spinner-wrapper">
     <div class="lds-ring">
@@ -189,6 +191,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js'></script>
   <script src="js/function.js"></script>
+  <!--COMENTARIOS-->
   <script src="js/newComment.js"></script>
 
 </body>
