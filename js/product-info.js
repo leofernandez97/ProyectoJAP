@@ -30,13 +30,13 @@ function showRelatedProducts(array){
 
         htmlContentToAppend += `
         
-            <div class="card m-2 bg-light"  style="width: 14rem;">
+            <div class="card card-prod-rel m-2 bg-light">
                 <a id="link-a" href="product-info.html">
-                    <img class="card-img-top" src="`+ productoRelac[posicion].imgSrc +`" alt="Card image cap">
+                    <img class="card-img-top d-block" src="`+ productoRelac[posicion].imgSrc +`" alt="Card image cap">
                     <div class="card-body">
                         <h3 class="card-title text-center ">`+ productoRelac[posicion].name +`</h3>
                         <hr>
-                        <p class="card-text texto-suspensivo text-center">`+ productoRelac[posicion].description +`</p>
+                        <p class="card-text text-center">`+ productoRelac[posicion].description +`</p>
                     </div>
                     <div class="card-footer">
                         <h4 class=" text-center">`+productoRelac[posicion].currency + productoRelac[posicion].cost+`</h4>
@@ -51,7 +51,6 @@ function showRelatedProducts(array){
 }
 
 
-let auxStars;
 function showComments(array){
         let htmlContentToAppend = "";
         
@@ -63,7 +62,7 @@ function showComments(array){
             <div class="card mb-2">
                 <div class="d-block">
                     <div class="card-header align-user w-100">
-                    <div class="col font-italic m-0 pl-0">`+comment.user+'</div><div class="col text-right "> Calificación: '+ratingStars(auxStars)+`</div>
+                    <div class="col font-italic m-0 pl-0">`+comment.user+`</div><div class="col text-right "> Calificación: `+ratingStars(auxStars)+`</div>
                     </div>
                 </div>
                 <div class="card-body ">

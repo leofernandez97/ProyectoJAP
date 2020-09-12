@@ -443,3 +443,28 @@ header label img{
   text-decoration:none;
   color: #343a40;
 }
+
+.card-prod-rel{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: fit-content;
+}
+
+#productRelatedProducts{
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card-img-top{
+  width: 250px;
+  margin:auto;
+}
+
+.card-text{
+  width: 230px;
+}
