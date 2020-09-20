@@ -1,57 +1,15 @@
-
-
-.slideshow-container{
-    width: 100%;
+.imgCarousel{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
 }
-  .demo {
-      width:100%;
-      margin: 20px auto;
-  }
-  #lightSlider {
-      list-style: none outside none;
-      padding-left: 0;
-      margin-bottom:0;
-      
-  }
-  #productImagesGallery li {
-      display: block;
-      float: left;
-      cursor:pointer;
-      width: auto;
-      height: auto;
-  }
+/*Img centradas*/
 
-  #productImagesGallery{
-    display: inline-flex;
-    width: 100%;
+.ctrlCarousel{
+    width: auto;
+    height: 10%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10%;
+    margin-left: 10%;
 }
-  
-
-  .img-prod-info {
-      display: flex;
-      height: auto;
-      width: 90%;
-      
-  }
-  
-  .lSSlideOuter .lSPager.lSGallery li {
-      opacity: 0.5;
-  }
-  
-  .lSSlideOuter .lSPager.lSGallery li.active {
-      opacity: 1;
-  }
-  
-  .lSSlideOuter .lSPager.lSGallery li.active, .lSSlideOuter .lSPager.lSGallery li{
-    border-radius: 0;
-  }
-  
-  lSSlideOuter .lSPager.lSGallery li.active:hover, .lSSlideOuter .lSPager.lSGallery li:hover {
-    border-radius: 0;
-  }
-  
-  .lSSlideOuter .lSPager.lSGallery .img-prod-info {
-      display: block;
-      height: 64px;
-      max-width: 100%;
-  }

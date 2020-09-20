@@ -8,15 +8,22 @@ function showImagesGallery(array){
 
     for(let i = 0; i < array.length; i++){
         let imageSrc = array[i];
+        //La primer img es la que queda activa, la primer img es i=0
+        if (i === 0){
 
         htmlContentToAppend += `
-            <li data-thumb="` + imageSrc + `">
-                <a href="` + imageSrc + `" data-fancybox="gallery">
-                    <img class="img-prod-info" src="` + imageSrc + `" />
-                </a>
-            </li>
+            <div class="carousel-item active">
+                  <img class="d-block imgCarousel" src="`+imageSrc+`">
+            </div>
         `
-
+        }else{
+            //Si no es la primera entonces no va active
+            htmlContentToAppend +=`
+            <div class="carousel-item">
+                  <img class="d-block imgCarousel" src="`+imageSrc+`">
+            </div>
+        `
+        }
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
