@@ -468,3 +468,26 @@ header label img{
 .card-text{
   width: 230px;
 }
+
+.centrado{
+  display: block;
+  margin: auto;
+}
+
+.align-center{
+  align-items: center;
+}
+
+.f-align-center{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-card-cart{
+  background-color: rgb(241, 241, 241);
+}
+
+.bg-red{
+  background-color: rgba(252, 0, 0, 0.192);
+}
