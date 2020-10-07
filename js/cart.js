@@ -1,4 +1,5 @@
 let cart = [];
+let currency = [];
 let cantArticulos;
 //formato pesos
 var options = { style: 'currency', currency: 'USD' };
@@ -28,7 +29,7 @@ function showArticlesCart(array){
                     <span> `+carrito.currency +` `+ carrito.unitCost+`  </span>
                 </td>
                 <td class="cart-price a-center">
-                    <span id="subTotal`+i+`">  `+calcPrecioTotal(carrito.currency, carrito.unitCost, carrito.count)+` </span>
+                    <span id="simbolo`+i+`">$ </span><span class="subTotal" id="subTotal`+i+`">  `+calcPrecioTotal(carrito.currency, carrito.unitCost, carrito.count)+` </span>
                 </td>
             </tr>
         `
@@ -37,28 +38,69 @@ function showArticlesCart(array){
     }
 }
 
+let currentCurrency;
+function refreshCurrency(){
+    
+    currency = document.getElementsByName("currency");
+    for (let i = 0; i < currency.length; i++) {
+        if (currency[i].checked == true){
+             currentCurrency = currency[i].value;
+             sessionStorage.setItem("currentCurrency", currentCurrency);
+             console.log("currency actializado a "+currentCurrency);
+             if(currentCurrency == "UYU"){
+                 subtotal = document.getElementsByClassName("subTotal");
+                 for (let i = 0; i < subtotal.length; i++) {
+                    let newSubtotal = subtotal[i].innerText;
+                    newSubtotal = newSubtotal *40;
+                    console.log(newSubtotal)
+                    document.getElementById("simbolo"+i).innerHTML = "$ ";
+                    document.getElementById("subTotal"+i).innerHTML = newSubtotal;
+                 }
+             }else if(currentCurrency == "USD"){
+                subtotal = document.getElementsByClassName("subTotal");
+                for (let i = 0; i < subtotal.length; i++) {
+                    let newSubtotal = subtotal[i].innerText;
+                    newSubtotal = newSubtotal /40
+                    console.log(newSubtotal)
+                    document.getElementById("simbolo"+i).innerHTML = "U$S ";
+                    document.getElementById("subTotal"+i).innerHTML = newSubtotal;
+                 }
+             }
+        }
+    }
+
+}
+
 function calcPrecioTotal(moneda, costoUnitario, unidad){
     //comparo el tipo de moneda y le hago el calculo correspondiente
     //dolar $40
+    let currentCurrency = sessionStorage.getItem("currentCurrency");
+    let total;
     if(moneda == "UYU"){
-        let total = costoUnitario * unidad;
+        total = costoUnitario * unidad;
         //formato pesos
-        total = numberFormat.format(total);
+        //total = numberFormat.format(total);
         return total;
     }else if(moneda == "USD"){
         costoUnitarioPesos = costoUnitario * 40;
-        let total = costoUnitarioPesos * unidad;
+        total = costoUnitarioPesos * unidad;
         //formato pesos
-        total = numberFormat.format(total);
+        //total = numberFormat.format(total);
         return total;
-        
     }
+    
 }
 
 function calcNewSubTotal(newCant, unitCost, i){ //tomo nueva cantidad, precio de unidad del JSON y el i para utilizar ese input e insertarlo en ese subtotal
     let moneda = sessionStorage.getItem("currency"+i); //tomo el valor de la moneda en el <p id="moneda'i'" linea 26
-    document.getElementById("subTotal"+i).innerHTML =  calcPrecioTotal(moneda, unitCost, newCant); //utilizo la funcion para calcular precio optimizando code
+     //utilizo la funcion para calcular precio optimizando code
     //con .innerText tomo el texto que se muestra en el html xq no me tomaba el parametro carrito.currency (lo tomaba como variable)
+    let currentCurrency = sessionStorage.getItem("currentCurrency");
+    if(currentCurrency == "UYU"){
+        document.getElementById("subTotal"+i).innerHTML =  calcPrecioTotal(moneda, unitCost, newCant);
+    }else if(currentCurrency == "USD"){
+        document.getElementById("subTotal"+i).innerHTML = (calcPrecioTotal(moneda, unitCost, newCant) / 40);
+    }
 }
 
 
@@ -72,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             cart = resultObj.data; 
         }
         showArticlesCart(cart.articles);
+        
     });
     
 });

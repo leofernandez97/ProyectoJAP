@@ -538,3 +538,8 @@ table#shopping-cart-table {
 }
 
 /* FIN CARRITO DE COMPRAS */
+
+.f-currency{
+  float: right;
+  margin-left: 10px;
+}

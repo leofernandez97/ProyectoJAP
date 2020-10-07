@@ -56,13 +56,24 @@
       </div>
       <div class="container">
         <h3>Articulos a comprar</h3>
+        <div class="d-flex f-currency">
+           
+        </div>
         <table id="shopping-cart-table" class="data-table">
           <thead>
               <tr>
                   <td class="a-center" colspan="2">Producto</td>
                   <td class="a-center">Cantidad</td>
                   <td class="a-center">Costo unitario</td>
-                  <td class="a-center">Subtotal</td>
+                  <td class="a-center">
+                    Subtotal
+                    <form id="currency" onchange="refreshCurrency()">
+                      <input type="radio" id="pesos" name="currency" value="UYU" checked>
+                      <label for="UYU">UYU</label>
+                      <input type="radio" id="dolares" name="currency" value="USD">
+                      <label for="USD">USD</label>
+                    </form>
+                  </td>
               </tr>
           </thead>
           <tbody id="cart-articles">
