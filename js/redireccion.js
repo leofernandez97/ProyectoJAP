@@ -1,10 +1,10 @@
 let logueado = localStorage.getItem("estaLogueado");
-function exist(){
+/*function exist(){
   if (typeof(logueado) == "object") {
     logueado = "false"; 
     localStorage.setItem("estaLogueado", logueado);
   }
-}
+}*/
 
 function redireccion(){
   if (logueado != "true") {
@@ -12,5 +12,5 @@ function redireccion(){
   }
 }
 
-exist();
+//exist();
 redireccion();

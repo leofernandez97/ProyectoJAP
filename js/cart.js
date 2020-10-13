@@ -40,19 +40,21 @@ function showArticlesCart(array){
 
 let currentCurrency;
 function refreshCurrency(){
-    
+    //tomo los checks
     currency = document.getElementsByName("currency");
     for (let i = 0; i < currency.length; i++) {
         if (currency[i].checked == true){
+            // si tiene checked true guardo esos datos
              currentCurrency = currency[i].value;
              sessionStorage.setItem("currentCurrency", currentCurrency);
-             console.log("currency actializado a "+currentCurrency);
              if(currentCurrency == "UYU"){
+                 //agarro los subtotales
                  subtotal = document.getElementsByClassName("subTotal");
                  for (let i = 0; i < subtotal.length; i++) {
+                     //tomo los valores
                     let newSubtotal = subtotal[i].innerText;
                     newSubtotal = newSubtotal *40;
-                    console.log(newSubtotal)
+                    //si es UYU es porque antes eran USD entonces multiplico *40 e inserto en subtotal de nuevo
                     document.getElementById("simbolo"+i).innerHTML = "$ ";
                     document.getElementById("subTotal"+i).innerHTML = newSubtotal;
                  }
@@ -60,8 +62,7 @@ function refreshCurrency(){
                 subtotal = document.getElementsByClassName("subTotal");
                 for (let i = 0; i < subtotal.length; i++) {
                     let newSubtotal = subtotal[i].innerText;
-                    newSubtotal = newSubtotal /40
-                    console.log(newSubtotal)
+                    newSubtotal = newSubtotal / 40;
                     document.getElementById("simbolo"+i).innerHTML = "U$S ";
                     document.getElementById("subTotal"+i).innerHTML = newSubtotal;
                  }
@@ -74,7 +75,6 @@ function refreshCurrency(){
 function calcPrecioTotal(moneda, costoUnitario, unidad){
     //comparo el tipo de moneda y le hago el calculo correspondiente
     //dolar $40
-    let currentCurrency = sessionStorage.getItem("currentCurrency");
     let total;
     if(moneda == "UYU"){
         total = costoUnitario * unidad;
@@ -97,9 +97,9 @@ function calcNewSubTotal(newCant, unitCost, i){ //tomo nueva cantidad, precio de
     //con .innerText tomo el texto que se muestra en el html xq no me tomaba el parametro carrito.currency (lo tomaba como variable)
     let currentCurrency = sessionStorage.getItem("currentCurrency");
     if(currentCurrency == "UYU"){
-        document.getElementById("subTotal"+i).innerHTML =  calcPrecioTotal(moneda, unitCost, newCant);
+        document.getElementById("subTotal"+i).innerText =  calcPrecioTotal(moneda, unitCost, newCant);
     }else if(currentCurrency == "USD"){
-        document.getElementById("subTotal"+i).innerHTML = (calcPrecioTotal(moneda, unitCost, newCant) / 40);
+        document.getElementById("subTotal"+i).innerText = (calcPrecioTotal(moneda, unitCost, newCant) / 40);
     }
 }
 

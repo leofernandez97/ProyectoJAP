@@ -1,8 +1,8 @@
 // Funcion que valida logueo.
 function validate() {
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-  var expresion = /\w+@\w+\.+[a-z]/;
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+  let expresion = /\w+@\w+\.+[a-z]/;
 
   if (username === "" || password === "") {
     alert("Debe ingresar usuario y contraseña");
