@@ -38,7 +38,8 @@ function showArticlesCart(array){
     }
 }
 
-let currentCurrency;
+let currentCurrency = "UYU";
+sessionStorage.setItem("currentCurrency", currentCurrency);
 function refreshCurrency(){
     //tomo los checks
     currency = document.getElementsByName("currency");
