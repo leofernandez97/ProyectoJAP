@@ -145,12 +145,61 @@ function seleccionPago(){
     metodosPago = document.getElementsByName("metodo-pago");
     for (let i = 0; i < metodosPago.length; i++) {
         if (metodosPago[i].checked == true){
-            metodoPago = metodosPago[i].value;
+            return metodoPago = metodosPago[i].value;
+        }else{
+            return alert("Debe seleccionar un metodo de pago");
         }
     }
     document.getElementById("pago-seleccionado").innerText = metodoPago;
 }
 
+function validarCompra(){
+        //valido cantidad de articulos != 0
+        articulos = document.getElementsByClassName("inputCant");
+        for (let i = 0; i < articulos.length; i++) {
+            if(articulos[i].value == 0)
+            return alert("No hay artículos en el carrito, ingrese una cantidad.");
+             
+        }
+        //valido campos de direccion
+        direccion = document.getElementsByName("direccion");
+        for (let i = 0; i < direccion.length; i++) {
+            if(direccion[i].value == ""){
+            return alert('La casilla "'+ direccion[i].placeholder +'" se encuentra vacía.\nDebe completarla para realizar la compra')
+            }
+        }
+        //valido que se haya seleccionado metodo de pago
+        metodoDePago = document.getElementById("pago-seleccionado")
+        if(metodoDePago.innerText == "No ha seleccionado un método"){
+            return alert("Debe seleccionar una forma de pago.")
+        }
+
+        return alert("¡Compra realizada con éxito!")
+}
+
+//PARA FORMULARIO DE FORMAS DE PAGO
+function habilitarForm(){
+    formasDePago = document.getElementsByName("metodo-pago");
+    inputGiro = document.getElementsByName("form-giro")
+    inputTarjeta = document.getElementsByName("form-tarjeta")
+    if(formasDePago[0].checked == true){
+        
+        for (let i = 0; i < inputGiro.length; i++) {
+            inputGiro[i].disabled = true;
+            for (let i = 0; i < inputTarjeta.length; i++) {
+                inputTarjeta[i].disabled = false;
+            }
+        }
+    }else if (formasDePago[1].checked == true){
+        
+        for (let i = 0; i < inputTarjeta.length; i++) {
+            inputTarjeta[i].disabled = true;
+            for (let i = 0; i < inputGiro.length; i++) {
+                inputGiro[i].disabled = false;
+            }
+        }
+    }
+}
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.

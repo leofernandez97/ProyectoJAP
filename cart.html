@@ -162,51 +162,56 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form>
-                    <input id="tarjeta" type="radio" name="metodo-pago" value="Tarjeta de credito" required checked>
-                    <label for="tarjeta">Tarjeta de credito</label>
-                    <form id="tajetaCredito">
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="numTarjeta">Numero de tarjeta:</label>
-                          <input type="text" id="numTarjeta" class="form-control" name="form-tarjeta" size="40" required placeholder="Num. de su tarjeta">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="cod-seguridad">Codigo de seguridad:</label>
-                          <input type="text" id="cod-seguridad" class="form-control" name="form-tarjeta" size="25" required placeholder="Cod. de seguridad de la tarjeta">
-                        </div>
-                      </div>
-                      <div class="form-row">
-                        <div class="col-md-6">
-                          <label for="vencimiento">Vencimiento (MM/AA):</label>
-                          <input type="text" id="vencimiento" class="form-control" name="form-tarjeta" size="40" required placeholder="">
-                        </div>
-                      </div>
-                    </form>
-                    <hr>
-                    <input id="giro-banco" type="radio" name="metodo-pago" value="Giro bancario">
-                    <label for="giro-banco">Giro bancario</label>
-                    <form>
-                      <div class="form-row">
-                        <div class="form-group col">
-                          <label for="num-cuenta">Numero de la cuenta</label>
-                          <input type="text" id="num-cuenta"  class="form-control" size="35" name="form-giro" required> 
-                        </div>
-                      </div>
-                    </form>
+                  <form onchange="habilitarForm()">
+                    <div class="text-center">
+                      <input id="tarjeta" type="radio" name="metodo-pago" value="Tarjeta de credito" required>
+                      <label for="tarjeta"><img src="./img/logos tarjetas.png" style="width: 35px; height: auto;"></label>
 
+                      <input id="giro-banco" class="ml-5" type="radio" name="metodo-pago" value="Giro bancario" required>
+                      <label for="giro-banco" class=""><img src="./img/santander.png" style="width: 55px; height: auto;"> <img src="./img/brou.png" style="width: 35px; height: auto;"></label>
+                    </div>  
+                    <div>
+                        <form id="tajetaCredito">
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="numTarjeta">Número de tarjeta:</label>
+                              <input type="text" id="numTarjeta" class="form-control" name="form-tarjeta" size="40" required placeholder="Num. de su tarjeta">
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label for="cod-seguridad">Código de seguridad:</label>
+                              <input type="text" id="cod-seguridad" class="form-control" name="form-tarjeta" size="25" required placeholder="Cod. de seguridad de la tarjeta">
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col-md-6">
+                              <label for="vencimiento">Vencimiento (MM/AA):</label>
+                              <input type="text" id="vencimiento" class="form-control" name="form-tarjeta" size="40" required placeholder="">
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <hr>
+                    
+                      <div>
+                        <form id="giroBanco">
+                          <div class="form-row">
+                            <div class="form-group col">
+                              <label for="num-cuenta">Número de la cuenta</label>
+                              <input type="text" id="num-cuenta"  class="form-control" size="35" name="form-giro" required> 
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" name="metodo-pago" onclick="seleccionPago()">Seleccionar método</button>
                   </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" onclick="seleccionPago()">Save changes</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div>
-          <button type="button" class="btn btn-primary">Finalizar compra</button>
+          <button type="button" class="btn btn-success" onclick="validarCompra()">Finalizar compra</button>
         </div>
       </div>
   </main>
