@@ -23,7 +23,7 @@ function showArticlesCart(array){
                     <h2 class="h5 a-center">`+carrito.name+`</h2>
                 </td>
                 <td class="cart-qty a-center">
-                    <input type="number" class="h4 pl-2 ml-2 inputCant" value="`+carrito.count+`" onchange="calcNewSubTotal(this.value, `+carrito.unitCost+`,`+i+`)" name="Cantidad`+i+`" min="0">
+                    <input type="number" class="h4 pl-2 ml-2 inputCant" value="`+carrito.count+`" onchange="calcNewSubTotal(this.value, `+carrito.unitCost+`,`+i+`); costos();" name="Cantidad`+i+`" min="0">
                 </td>
                 <td class="cart-price a-center">
                     <span> `+carrito.currency +` `+ carrito.unitCost+`  </span>
@@ -37,9 +37,10 @@ function showArticlesCart(array){
         document.getElementById("cart-articles").innerHTML = htmlContentToAppend;
     }
 }
-
+//cuando carga la pagina por default es pesos uruguayos
 let currentCurrency = "UYU";
 sessionStorage.setItem("currentCurrency", currentCurrency);
+
 function refreshCurrency(){
     //tomo los checks
     currency = document.getElementsByName("currency");
@@ -104,6 +105,51 @@ function calcNewSubTotal(newCant, unitCost, i){ //tomo nueva cantidad, precio de
     }
 }
 
+function costos(){
+    
+    //Subtotales sumados
+    subTotales = document.getElementsByClassName("subTotal");
+    let sumaSubtotales = 0;
+        for (let i = 0; i < subTotales.length; i++) {
+            sumaSubtotales += parseInt(subTotales[i].innerText, 10);
+        }
+    document.getElementById("subtotal-costos").innerText = tipoMoneda()+sumaSubtotales;
+
+    //calculo envio
+    let porcentaje;
+    costoEnvio = document.getElementsByName("envio")
+    for (let i = 0; i < costoEnvio.length; i++) {
+        if (costoEnvio[i].checked == true){
+            porcentaje = costoEnvio[i].value;
+        }
+    }
+    subTotalPorcentaje = (sumaSubtotales * porcentaje) / 100;
+    document.getElementById("envio-costo").innerText = tipoMoneda()+ subTotalPorcentaje;
+
+    //calculo total
+    let total = sumaSubtotales + subTotalPorcentaje;
+    document.getElementById("total-costo").innerText = tipoMoneda()+ total;
+}
+
+function tipoMoneda(){
+    //tipo de moneda seleccionada
+    currentCurrency = sessionStorage.getItem("currentCurrency");
+    if(currentCurrency == "UYU"){
+        return "$ ";
+    }else if (currentCurrency == "USD"){
+        return "U$S "
+    }
+}
+
+function seleccionPago(){
+    metodosPago = document.getElementsByName("metodo-pago");
+    for (let i = 0; i < metodosPago.length; i++) {
+        if (metodosPago[i].checked == true){
+            metodoPago = metodosPago[i].value;
+        }
+    }
+    document.getElementById("pago-seleccionado").innerText = metodoPago;
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -115,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             cart = resultObj.data; 
         }
         showArticlesCart(cart.articles);
+        costos();
         
     });
     

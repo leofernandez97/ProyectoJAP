@@ -67,7 +67,7 @@
                   <td class="a-center">Costo unitario</td>
                   <td class="a-center">
                     Subtotal
-                    <form id="currency" onchange="refreshCurrency()">
+                    <form id="currency" onchange="refreshCurrency(); costos()">
                       <input type="radio" id="pesos" name="currency" value="UYU" checked>
                       <label for="UYU">UYU</label>
                       <input type="radio" id="dolares" name="currency" value="USD">
@@ -80,6 +80,134 @@
             
           </tbody>
         </table>
+        <hr>
+        
+        <div>
+          <h3>Tipo de envío</h3>
+          <form id="envio" onchange="costos()">
+            <div>
+              <input type="radio" id="val-prem" name="envio" required value="15" checked>
+              <label for="val-prem"> Premium 2 a 5 días</label>
+            </div>
+            <div>
+              <input type="radio" id="val-expr" name="envio" required value="7">
+              <label for="val-expr"> Express 5 a 8 días</label>
+            </div>
+            <div>
+              <input type="radio" id="val-stan" name="envio" required value="5">
+              <label for="val-stan"> Standar 12 a 15 días</label>
+            </div>
+          </form>
+        </div>
+        <div>
+          <h3>Dirección de envío</h3>
+          <form id="direccion">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="dir">Calle:</label>
+                <input type="text" id="dir" class="form-control" name="direccion" size="40" required placeholder="Calle">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="num-puerta">Número de puerta:</label>
+                <input type="text" id="num-puerta" class="form-control" name="direccion" size="25" required placeholder="Núm. de puerta">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="dir-esquina">Esquina:</label>
+                <input type="text" id="dir-esquina" class="form-control" name="direccion" size="40" required placeholder="Esquina">
+              </div>
+            </div>
+          </form>
+        </div>
+        <hr>
+        <div>
+          <h3>Costos</h3>
+          <table class="table w-50">
+            <tbody>
+              <tr class="table-light">
+                <td>Subtotal</td>
+                <td id="subtotal-costos">x x x</td>
+              </tr>
+              <tr class="table-light">
+                <td>Costo envio</td>
+                <td id="envio-costo">x x x</td>
+              </tr>
+              <tr class="table-light">
+                <td>Total</td>
+                <td id="total-costo">x x x</td>
+              </tr>
+            </tbody>
+          </table>
+
+          
+        </div>
+        <div>
+          <h3>Formas de pago</h3>
+          
+          
+          <p>
+            <span id="pago-seleccionado">No ha seleccionado un metodo</span>
+            <a href="" data-toggle="modal" data-target="#exampleModal">Seleccionar</a>
+          </p>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Formas de pago</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <input id="tarjeta" type="radio" name="metodo-pago" value="Tarjeta de credito" required checked>
+                    <label for="tarjeta">Tarjeta de credito</label>
+                    <form id="tajetaCredito">
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="numTarjeta">Numero de tarjeta:</label>
+                          <input type="text" id="numTarjeta" class="form-control" name="form-tarjeta" size="40" required placeholder="Num. de su tarjeta">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="cod-seguridad">Codigo de seguridad:</label>
+                          <input type="text" id="cod-seguridad" class="form-control" name="form-tarjeta" size="25" required placeholder="Cod. de seguridad de la tarjeta">
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="col-md-6">
+                          <label for="vencimiento">Vencimiento (MM/AA):</label>
+                          <input type="text" id="vencimiento" class="form-control" name="form-tarjeta" size="40" required placeholder="">
+                        </div>
+                      </div>
+                    </form>
+                    <hr>
+                    <input id="giro-banco" type="radio" name="metodo-pago" value="Giro bancario">
+                    <label for="giro-banco">Giro bancario</label>
+                    <form>
+                      <div class="form-row">
+                        <div class="form-group col">
+                          <label for="num-cuenta">Numero de la cuenta</label>
+                          <input type="text" id="num-cuenta"  class="form-control" size="35" name="form-giro" required> 
+                        </div>
+                      </div>
+                    </form>
+
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="seleccionPago()">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary">Finalizar compra</button>
+        </div>
       </div>
   </main>
   <div id="spinner-wrapper">
@@ -90,11 +218,16 @@
       <div></div>
     </div>
   </div>
+  
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  <script>
+    
+  </script>
 </body>
 
 </html>
