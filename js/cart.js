@@ -15,7 +15,7 @@ function showArticlesCart(array){
         sessionStorage.setItem("currency"+i, carrito.currency);
 
         htmlContentToAppend += `
-            <tr>
+            <tr id="articulo`+i+`">
                 <td class="block-img a-center">
                     <img style=" max-width:100px; max-height:100px;" src="`+carrito.src+`">
                 </td>
@@ -27,6 +27,11 @@ function showArticlesCart(array){
                 </td>
                 <td class="cart-price a-center">
                     <span> `+carrito.currency +` `+ carrito.unitCost+`  </span>
+                </td>
+                <td class="a-center"> 
+                    <button type="button" class="btn btn-link" onclick="eliminarArticulo(`+i+`); costos()">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
                 </td>
                 <td class="cart-price a-center">
                     <span id="simbolo`+i+`">$ </span><span class="subTotal" id="subTotal`+i+`">  `+calcPrecioTotal(carrito.currency, carrito.unitCost, carrito.count)+` </span>
@@ -145,12 +150,28 @@ function seleccionPago(){
     metodosPago = document.getElementsByName("metodo-pago");
     for (let i = 0; i < metodosPago.length; i++) {
         if (metodosPago[i].checked == true){
-            return metodoPago = metodosPago[i].value;
-        }else{
-            return alert("Debe seleccionar un metodo de pago");
+            if (metodosPago[i].value == "Tarjeta de credito"){
+                inputsTarjetas = document.getElementsByName("form-tarjeta");
+                for (let i = 0; i < inputsTarjetas.length; i++) {
+                    if(inputsTarjetas[i].value == ""){
+                        return alert("Debe completar el campo "+inputsTarjetas[i].placeholder)
+                    }
+                    
+                }
+            }else if(metodosPago[i].value == "Giro bancario"){
+                inputGiro = document.getElementsByName("form-giro");
+                for (let i = 0; i < inputGiro.length; i++) {
+                    if(inputGiro[i].value == ""){
+                        return alert("Debe completar el campo "+inputGiro[i].placeholder)
+                    }
+                    
+                }
+            }
+            metodoPago = metodosPago[i].value;
         }
     }
     document.getElementById("pago-seleccionado").innerText = metodoPago;
+    $('#exampleModal').modal('hide')
 }
 
 function validarCompra(){
@@ -173,8 +194,9 @@ function validarCompra(){
         if(metodoDePago.innerText == "No ha seleccionado un método"){
             return alert("Debe seleccionar una forma de pago.")
         }
-
+        window.location.replace("./index.html")
         return alert("¡Compra realizada con éxito!")
+
 }
 
 //PARA FORMULARIO DE FORMAS DE PAGO
@@ -183,7 +205,7 @@ function habilitarForm(){
     inputGiro = document.getElementsByName("form-giro")
     inputTarjeta = document.getElementsByName("form-tarjeta")
     if(formasDePago[0].checked == true){
-        
+        //la posicion 0 es la tarjeta
         for (let i = 0; i < inputGiro.length; i++) {
             inputGiro[i].disabled = true;
             for (let i = 0; i < inputTarjeta.length; i++) {
@@ -191,7 +213,7 @@ function habilitarForm(){
             }
         }
     }else if (formasDePago[1].checked == true){
-        
+        //posicion 1 es el giro
         for (let i = 0; i < inputTarjeta.length; i++) {
             inputTarjeta[i].disabled = true;
             for (let i = 0; i < inputGiro.length; i++) {
@@ -199,6 +221,14 @@ function habilitarForm(){
             }
         }
     }
+}
+
+function eliminarArticulo(i){
+    var opcion = confirm("¿Desea eliminar este producto?");
+    if (opcion == true) {
+        $("#articulo" + i).remove();
+	} 
+    
 }
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
