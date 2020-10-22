@@ -195,7 +195,9 @@ function validarCompra(){
             return alert("Debe seleccionar una forma de pago.")
         }
         window.location.replace("./index.html")
-        return alert("¡Compra realizada con éxito!")
+        alert("¡Compra realizada con éxito!")
+        return $('#modal-compra').modal('hide')
+        
 
 }
 
@@ -224,10 +226,14 @@ function habilitarForm(){
 }
 
 function eliminarArticulo(i){
-    var opcion = confirm("¿Desea eliminar este producto?");
-    if (opcion == true) {
+    var cartel = confirm("¿Desea eliminar este producto?");
+    if (cartel == true) {
         $("#articulo" + i).remove();
-	} 
+    }
+}
+
+function mostrarDatosCompra(){
+    ventanaDatos = document.getElementById("datos-compra");
     
 }
 //Función que se ejecuta una vez que se haya lanzado el evento de

@@ -539,7 +539,7 @@ table#shopping-cart-table {
 
 .costos-box{
   text-align: center;
-  width: 400px;
+  width: 300px;
   height: auto;
   border-left-style: solid ;
   border: solid 2px rgb(232, 176, 176);
@@ -577,6 +577,10 @@ table#shopping-cart-table {
   width: 40%;
   text-align-last: center;
 
+}
+
+#modal-pago{
+  background-color: rgba(0, 0, 0, 0.583)
 }
 
 
