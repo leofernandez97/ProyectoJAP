@@ -171,7 +171,7 @@ function seleccionPago(){
         }
     }
     document.getElementById("pago-seleccionado").innerText = metodoPago;
-    $('#exampleModal').modal('hide')
+    $('#modal-pago').modal('hide')
 }
 
 function validarCompra(){
