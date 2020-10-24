@@ -545,7 +545,7 @@ table#shopping-cart-table {
   border: solid 2px rgb(232, 176, 176);
   
   border-left: solid 4px rgb(186, 2, 2);
-  background-color: rgba(186, 2, 2, 0.179);
+  background-color: rgba(186, 2, 2, 0.049);
 }
 
 .table-costos #envio-costo{
