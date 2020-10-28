@@ -166,7 +166,7 @@ html, .body-login{
   }
   
   .card-login{
-  height: 480px;
+  height: auto;
   margin-top: auto;
   margin-bottom: auto;
   width: 400px;
@@ -590,4 +590,17 @@ table#shopping-cart-table {
 .f-currency{
   float: right;
   margin-left: 10px;
+}
+
+.p-white{
+  color: rgba(255, 255, 255, 0.611);
+}
+
+/* PERFIL */
+
+.imgRedonda {
+  width:200px;
+  height:200px;
+  border-radius:160px;
+  border:10px solid #666;
 }
