@@ -121,5 +121,9 @@ header #buscador-nav{
     .al-center-sm{
         text-align: center;
     }
+
+    .img-header{
+        display: none;
+    }
 }
 

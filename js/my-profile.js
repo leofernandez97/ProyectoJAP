@@ -1,5 +1,5 @@
 datos = [];
-
+slotImg = [];
 function guardarDatos(){
     primerNombre = document.getElementById('inputFirstName');
     segundoNombre = document.getElementById('inputSecondName');
@@ -38,33 +38,19 @@ function borrarDatos(){
     localStorage.removeItem("datosUsu");
 }
 
+document.querySelector("#inputImg").addEventListener("change", function (){
+    //cuando hay un cambio en el input ejecuta este codigo
 
-/*// Get a reference to the image element
-var foto = document.getElementById("foto-lugar");
+    //creo un lector de archivos
+    const reader = new FileReader();
 
-// Take action when the image has loaded
-foto.addEventListener("load", function () {
-    var imgCanvas = document.createElement("canvas"),
-        imgContext = imgCanvas.getContext("2d");
+    //cuando el lector "lee" la url la guarda en el local storage
+    reader.addEventListener("load", () =>{
+        localStorage.setItem("img", reader.result);
+    });
 
-    // Make sure canvas is as big as the picture
-    imgCanvas.width = foto.width;
-    imgCanvas.height = foto.height;
-
-    // Draw image into canvas element
-    imgContext.drawImage(foto, 0, 0, foto.width, foto.height);
-
-    // Get canvas contents as a data URL
-    var imgAsDataURL = imgCanvas.toDataURL("image/png");
-
-    // Save image into localStorage
-    try {
-        localStorage.setItem("foto", imgAsDataURL);
-    }
-    catch (e) {
-        console.log("Storage failed: " + e);
-    }
-}, false); */
+    reader.readAsDataURL(this.files[0]);
+});
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.

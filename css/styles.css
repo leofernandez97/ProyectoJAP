@@ -610,3 +610,16 @@ table#shopping-cart-table {
   display: none;
   z-index: 100;
 }
+
+/* img barra superior*/
+
+.imgNav{
+  height: 40px;
+  width: 40px;
+  margin-left: 4px;
+  border: 4px solid #666;
+}
+
+.centrar{
+  align-items: center;
+}

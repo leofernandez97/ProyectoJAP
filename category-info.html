@@ -23,14 +23,17 @@
     <img id="header-img" src="img/header.png">
     <nav class="bg-dark">
       <div id="cont-nav" class="container d-flex flex-column flex-md-row justify-content-between">
-        <ul>
-          <li><a class="py-2 d-md-inline-block" href="index.html">Inicio</a></li>
-          <li><a class="py-2 d-md-inline-block" href="categories.html">Categorías</a></li>
-          <li><a class="py-2 d-md-inline-block" href="products.html">Productos</a></li>
-          <li><a class="py-2 d-md-inline-block" href="sell.html">Vender</a></li>
+        <ul class="centrar">
+          <li class="py-2 d-md-inline-block img-header"><img src="img/header.png" style="height: 50px;"></li>
+          <li class="py-2 d-md-inline-block"><a  href="index.html">Inicio</a></li>
+          <li class="py-2 d-md-inline-block"><a  href="categories.html">Categorías</a></li>
+          <li class="py-2 d-md-inline-block"><a  href="products.html">Productos</a></li>
+          <li class="py-2 d-md-inline-block"><a  href="sell.html">Vender</a></li>
           
           <div class="dropdown-divider"></div>
-          <li><a class="dropdown-toggle py-2 d-md-inline-block" data-toggle="dropdown" href="#" role="button"
+          <li>
+            <img id="" class="imgNav imgRedonda imgPerfil" alt="Imagen Perfil">
+            <a class="dropdown-toggle py-2 d-md-inline-block" data-toggle="dropdown" href="#" role="button"
               aria-haspopup="true" aria-expanded="false" id="user-a">
               <script>
                 document.getElementById("user-a").innerHTML = localStorage.getItem("user");
@@ -105,6 +108,7 @@
   <script src="js/init.js"></script>
   <script src="js/category-info.js"></script>
   <script type="text/javascript" src="js/redireccion.js"></script>
+  <script type="text/javascript" src="js/img-profile.js"></script>
 </body>
 
 </html>
