@@ -18,6 +18,7 @@ function guardarDatos(){
         
     };
     localStorage.setItem("datosUsu",JSON.stringify(nuevosDatos))
+    $('.alert').show()
 }
 
 function devolverDatos(){
@@ -37,6 +38,33 @@ function borrarDatos(){
     localStorage.removeItem("datosUsu");
 }
 
+
+/*// Get a reference to the image element
+var foto = document.getElementById("foto-lugar");
+
+// Take action when the image has loaded
+foto.addEventListener("load", function () {
+    var imgCanvas = document.createElement("canvas"),
+        imgContext = imgCanvas.getContext("2d");
+
+    // Make sure canvas is as big as the picture
+    imgCanvas.width = foto.width;
+    imgCanvas.height = foto.height;
+
+    // Draw image into canvas element
+    imgContext.drawImage(foto, 0, 0, foto.width, foto.height);
+
+    // Get canvas contents as a data URL
+    var imgAsDataURL = imgCanvas.toDataURL("image/png");
+
+    // Save image into localStorage
+    try {
+        localStorage.setItem("foto", imgAsDataURL);
+    }
+    catch (e) {
+        console.log("Storage failed: " + e);
+    }
+}, false); */
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.

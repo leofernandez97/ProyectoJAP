@@ -67,12 +67,20 @@
     </nav>
   </header>
   <div class="container p-5">
-
     <div>
       <h3 class="text-center">Mi perfil</h3>
     </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Cambios guardados correctamente!</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <div class="text-center">
       <img src='https://i.ibb.co/tZGrWDQ/DSC-3837.jpg' class='imgRedonda' />
+    </div>
+    
+    <div class="text-center subirImg" id="subirImg">
     </div>
     <div class="pt-4">
       <form>
@@ -109,10 +117,10 @@
         <hr>
         <div class="form-row text-center">
           <div class="col">
-            <button type="submit" onclick="guardarDatos()" class="btn btn-primary">Guardar datos</button>
+            <button  type="button" onclick="guardarDatos()" class="btn btn-primary" id="btn-guardar">Guardar datos</button>
           </div>
           <div class="col">
-            <button type="submit" onclick="borrarDatos()" class="btn btn-primary">Borrar datos</button>
+            <button type="submit" onclick="borrarDatos()" class="btn btn-primary">Borrar todos los datos</button>
           </div>
         </div>
       </form>
@@ -125,12 +133,7 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+  
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -144,6 +147,9 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+  <script type="text/javascript" src="js/redireccion.js"></script>
+  
+  
 </body>
 
 </html>

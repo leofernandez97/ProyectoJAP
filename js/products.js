@@ -37,35 +37,42 @@ function sortCategories(criteria, array){
 
 function showCategoriesList(){
 
-    let htmlContentToAppend = "";
-    for(let i = 0; i < currentCategoriesArray.length; i++){
-        let category = currentCategoriesArray[i];
+        let htmlContentToAppend = "";
+        for(let i = 0; i < currentCategoriesArray.length; i++){
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
+            
+            let category = currentCategoriesArray[i];
 
-            htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ category.name +`</h4>
-                            <small class="text-muted">` + category.soldCount + ` artículos</small>
+            if (((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
+                ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
+
+                htmlContentToAppend += `
+                <a href="product-info.html" id="prod`+i+`" class="list-group-item list-group-item-action product-list col-5 col-sm-5 col-md-12">
+                    <div class="row">
+                        <div class="col-md-3 col-12">
+                            <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
                         </div>
-                        <p class="mb-1">` + category.description + `</p>
-                        <h5> `+ category.currency + ` ` + category.cost +`</h5>
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between row">
+                                <div class="col-auto text-center">
+                                    <h4 class="mb-1">`+ category.name +`</h4>
+                                </div>
+                                <div class="col al-right-lg al-center-sm">
+                                    <small class="text-muted ">` + category.soldCount + ` artículos</small>
+                                </div>
+                            </div>
+                            <p class="mb-1">` + category.description + `</p>
+                            <h5> `+ category.currency + ` ` + category.cost +`</h5>
+                        </div>
                     </div>
-                </div>
-            </a>
-            `
-        }
+                </a>
+                `
+            }
 
-        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
-    }
+            document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+        }
 }
+
 
 function sortAndShowCategories(sortCriteria, categoriesArray){
     currentSortCriteria = sortCriteria;

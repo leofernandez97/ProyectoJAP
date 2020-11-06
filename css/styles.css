@@ -599,8 +599,14 @@ table#shopping-cart-table {
 /* PERFIL */
 
 .imgRedonda {
+  object-fit: cover;
   width:200px;
   height:200px;
   border-radius:160px;
   border:10px solid #666;
+}
+
+.alert{
+  display: none;
+  z-index: 100;
 }

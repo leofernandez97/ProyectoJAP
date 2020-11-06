@@ -1,6 +1,12 @@
 header #buscador-nav{
     display: none;
   }
+
+@media(min-width: 768px){
+    .al-right-lg{
+        text-align: right;
+    }
+}  
 @media(max-width: 768px){
     header label {
         display: inline-block !important;
@@ -104,9 +110,16 @@ header #buscador-nav{
           float: right;
           margin-right: 10px;
       }
+   
+
+
+    /*LISTADO DE PRODUCTOS*/
+    .product-list{
+        margin: auto;
     }
 
-    #productImagesGallery{
-        display: inline-flex;
-        width: 100%;
+    .al-center-sm{
+        text-align: center;
     }
+}
+
