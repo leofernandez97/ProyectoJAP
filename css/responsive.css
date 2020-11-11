@@ -122,6 +122,10 @@ header #buscador-nav{
         text-align: center;
     }
 
+    #img-header{
+        display: none;
+    }
+
     .img-header{
         display: none;
     }
