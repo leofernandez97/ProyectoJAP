@@ -1,12 +1,12 @@
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Cant.";
-var currentCategoriesArray = [];
+var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 
-function sortCategories(criteria, array){
+function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
     {
@@ -35,34 +35,34 @@ function sortCategories(criteria, array){
     return result;
 }
 
-function showCategoriesList(){
+function showProductList(){
 
         let htmlContentToAppend = "";
-        for(let i = 0; i < currentCategoriesArray.length; i++){
+        for(let i = 0; i < currentProductsArray.length; i++){
 
             
-            let category = currentCategoriesArray[i];
+            let product = currentProductsArray[i];
 
-            if (((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
-                ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
+            if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
+                ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
 
                 htmlContentToAppend += `
                 <a href="product-info.html" id="prod`+i+`" class="list-group-item list-group-item-action product-list col-5 col-sm-5 col-md-12">
                     <div class="row">
                         <div class="col-md-3 col-12">
-                            <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+                            <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
                         </div>
                         <div class="col">
                             <div class="d-flex w-100 justify-content-between row">
                                 <div class="col-auto text-center">
-                                    <h4 class="mb-1">`+ category.name +`</h4>
+                                    <h4 class="mb-1">`+ product.name +`</h4>
                                 </div>
                                 <div class="col al-right-lg al-center-sm">
-                                    <small class="text-muted ">` + category.soldCount + ` artículos</small>
+                                    <small class="text-muted ">` + product.soldCount + ` artículos</small>
                                 </div>
                             </div>
-                            <p class="mb-1">` + category.description + `</p>
-                            <h5> `+ category.currency + ` ` + category.cost +`</h5>
+                            <p class="mb-1">` + product.description + `</p>
+                            <h5> `+ product.currency + ` ` + product.cost +`</h5>
                         </div>
                     </div>
                 </a>
@@ -74,22 +74,22 @@ function showCategoriesList(){
 }
 
 
-function sortAndShowCategories(sortCriteria, categoriesArray){
+function sortAndShowProducts(sortCriteria, categoriesArray){
     currentSortCriteria = sortCriteria;
 
     if(categoriesArray != undefined){
-        currentCategoriesArray = categoriesArray;
+        currentProductsArray = categoriesArray;
     }
 
-    currentCategoriesArray = sortCategories(currentSortCriteria, currentCategoriesArray);
+    currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
 
     //Muestro las categorías ordenadas
-    showCategoriesList();
+    showProductList();
 }
 
 function instertProduct(aux){
     let htmlContentToAppend = "";
-    for(let producto of currentCategoriesArray){
+    for(let producto of currentProductsArray){
     let nombre = producto.name.toLowerCase();
     if(nombre.indexOf(aux) !== -1){
         htmlContentToAppend += 
@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         minCount = undefined;
         maxCount = undefined;
 
-        showCategoriesList();
+        showProductList();
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
@@ -219,6 +219,6 @@ document.addEventListener("DOMContentLoaded", function(e){
             maxCount = undefined;
         }
 
-        showCategoriesList();
+        showProductList();
     });
 });
