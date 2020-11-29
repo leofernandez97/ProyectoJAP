@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     document.getElementById("sortDesc").addEventListener("click", function(){
-        sortAndShoProductsortAndShowProductss(ORDER_DESC_BY_NAME);
+        sortAndShowProductsortAndShowProducts(ORDER_DESC_BY_NAME);
     });
 
     document.getElementById("sortByCount").addEventListener("click", function(){
