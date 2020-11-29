@@ -173,20 +173,20 @@ function cambiarTextoBoton() {
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
-            sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
+            sortAndShowProducts(ORDER_ASC_BY_NAME, resultObj.data);
         }
     });
 
     document.getElementById("sortAsc").addEventListener("click", function(){
-        sortAndShowCategories(ORDER_ASC_BY_NAME);
+        sortAndShowProducts(ORDER_ASC_BY_NAME);
     });
 
     document.getElementById("sortDesc").addEventListener("click", function(){
-        sortAndShowCategories(ORDER_DESC_BY_NAME);
+        sortAndShoProductsortAndShowProductss(ORDER_DESC_BY_NAME);
     });
 
     document.getElementById("sortByCount").addEventListener("click", function(){
-        sortAndShowCategories(ORDER_BY_PROD_COUNT);
+        sortAndShowProducts(ORDER_BY_PROD_COUNT);
     });
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
